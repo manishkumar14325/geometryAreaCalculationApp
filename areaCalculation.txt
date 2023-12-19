@@ -1,0 +1,85 @@
+package Inheritance;
+import java.util.*;
+
+abstract class Shape
+{
+    float area;
+    abstract public void input();
+    abstract public void compute();
+
+    public void disp()
+    {
+        System.out.println("The area is "+area);
+    }
+}
+class Rectangle extends Shape
+{
+    float Length;
+    float Breadth;
+    public void input()
+    {
+        System.out.println("Calculation of Ractangle app");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Please enter length of Rectangle");
+        Length=scan.nextFloat();
+        System.out.println("Please enter Breadth of Rectangle");
+        Breadth=scan.nextFloat();
+
+    }
+    public void compute()
+    {
+        area=Length*Breadth;
+    }
+}
+class Square extends Shape{
+    float Length;
+    public void input()
+    {
+        System.out.println("Calculation of Square app ");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Please enter length of Square");
+        Length=scan.nextFloat();
+    }
+    public void compute()
+    {
+        area =Length*Length;
+    }
+}
+class Circle extends Shape{
+    float radius;
+    public void input()
+    {
+        System.out.println("Calculation of Circle app");
+        Scanner scan=new Scanner(System.in);
+        System.out.println("Please enter radius of Circle");
+        radius=scan.nextFloat();
+    }
+    public void compute()
+    {
+        area=3.14f*radius*radius;
+    }
+}
+class Geometry
+{
+    public void poly(Shape ref)
+    {
+        ref.input();
+        ref.compute();
+        ref.disp();
+    }
+}
+class AreaCal
+{
+    public static void main(String []args)
+    {
+        Rectangle rec=new Rectangle();
+        Square sq=new Square();
+        Circle c=new Circle();
+
+        Geometry g=new Geometry();
+        g.poly(rec);
+        g.poly(sq);
+        g.poly(c);
+
+    }
+}
